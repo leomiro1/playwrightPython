@@ -6,11 +6,13 @@ from playwright.sync_api import Playwright
 
 # import utils.secret_config
 
-try:
-    PASSWORD = os.environ['PASSWORD']
-except KeyError:
-    import utils.secret_config
-    PASSWORD= utils.secret_config.PASSWORD
+PASSWORD = os.environ['PASSWORD']
+
+# try:
+#     PASSWORD = os.environ['PASSWORD']
+# except KeyError:
+#     import utils.secret_config
+#     PASSWORD= utils.secret_config.PASSWORD
 
 
 @pytest.fixture(scope="session")
