@@ -2,8 +2,10 @@ import pytest
 import time
 from playwright.sync_api import Playwright
 
+import utils.secret_config
 
-@pytest.fixture(scope="function")
+
+@pytest.fixture(scope="session")
 def set_up(browser):
     # Assess - Given
     # browser = playwright.chromium.launch(headless=False)      #, slow_mo=500)
@@ -17,7 +19,7 @@ def set_up(browser):
     page.close()
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def login_set_up(set_up):
     # Assess - Given
     # browser = playwright.chromium.launch(headless=False)      #, slow_mo=500)
@@ -40,7 +42,7 @@ def login_set_up(set_up):
     page.click("#input_input_emailInput_SM_ROOT_COMP12")                                  #(":nth-match(input[type=email],1)")
     page.fill('#input_input_emailInput_SM_ROOT_COMP12', "symon.storozhenko@gmail.com")    #(":nth-match(input[type=email],1)", "symon.storozhenko@gmail.com")
     page.click('input:below(:text("Password"))')
-    page.fill('input:below(:text("Password"))', "test123")
+    page.fill('input:below(:text("Password"))', utils.secret_config.PASSWORD)
     page.click("[data-testid=\"submit\"] >> [data-testid=\"buttonElement\"]")
 
     yield page
