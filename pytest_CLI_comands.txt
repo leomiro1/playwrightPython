@@ -1,0 +1,39 @@
+CLI - Command Line Interface
+
+Run test with verbiage
+ pytest -v
+
+Run test on markers
+ pytest -m marker / "not marker" / "marker1 or marker2"
+
+Stop at first failure:
+ pytest -x
+
+Allow max failures before stopping
+ pytest --maxfail=2
+
+Run single test:
+ pytest -k test_func_name
+
+Run a single file:
+ pytest test_file.py
+
+Re-run last failed tests only:
+ pytest --lf
+
+Re-run all tests, starting with last failed:
+ pytest --ff
+
+You can combine CLI options togheter:
+ pytest --ff -x -v
+
+
+#pytest CLI commands documentation:
+https://docs.pytest.org/ -> click on Contents -> click on Usage and Invocations
+
+
+Combine Pytest, reporting and paralell commands:
+ pytest --maxfail=2 -m regression --template=html1/index.html --report=regression_test_report.html -n 4
+
+Combine commands:
+ pytest -k test_login --headed
