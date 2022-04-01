@@ -1,8 +1,16 @@
+import os
+
 import pytest
 import time
 from playwright.sync_api import Playwright
 
 # import utils.secret_config
+
+try:
+    PASSWORD = os.environ['PASSWORD']
+except KeyError:
+    import utils.secret_config
+    PASSWORD= utils.secret_config.PASSWORD
 
 
 @pytest.fixture(scope="session")
@@ -42,8 +50,7 @@ def login_set_up(set_up):
     page.click("#input_input_emailInput_SM_ROOT_COMP12")                                  #(":nth-match(input[type=email],1)")
     page.fill('#input_input_emailInput_SM_ROOT_COMP12', "symon.storozhenko@gmail.com")    #(":nth-match(input[type=email],1)", "symon.storozhenko@gmail.com")
     page.click('input:below(:text("Password"))')
-    #page.fill('input:below(:text("Password"))', utils.secret_config.PASSWORD)
-    page.fill('input:below(:text("Password"))', os.envirom['PASSWORD'])
+    page.fill('input:below(:text("Password"))', PASSWORD)
     page.click("[data-testid=\"submit\"] >> [data-testid=\"buttonElement\"]")
 
     yield page
