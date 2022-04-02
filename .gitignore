@@ -1,6 +1,9 @@
 /venv
 /venv/
 /.idea/
+.idea
+/__pycache__
+*.__pycache__
 /utils/secret_config.py
 *.env
 .env
