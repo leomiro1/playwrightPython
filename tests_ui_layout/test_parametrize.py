@@ -20,7 +20,7 @@ def test_user_can_login(page,email, passwrd) -> None:
             page.click("'Log In'")
         else:
             login_element_issue = False
-        time.sleep(0.1)
+        time.sleep(0.3)
 
     page.click("[data-testid=\"signUp\\.switchToSignUp\"]", timeout=2000)
     page.click("[data-testid=\"switchToEmailLink\"] >> [data-testid=\"buttonElement\"]")

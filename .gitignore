@@ -5,5 +5,7 @@
 /__pycache__
 *.__pycache__
 /utils/secret_config.py
+/utils/__pycache__
+utils/__pycache__
 *.env
 .env
