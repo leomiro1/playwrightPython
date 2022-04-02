@@ -34,5 +34,5 @@ def test_user_can_login(page,email, passwrd) -> None:
     page.expect_navigation(url="https://symonstorozhenko.wixsite.com/website-1",
                            wait_until="domcontentloaded",
                            timeout=5000)
-    page.wait_for_selector("[aria-label=\"symon.storozhenko account menu\"]")
+    #page.wait_for_selector("._1qtDu") #("[aria-label=\"symon.storozhenko account menu\"]")
     assert page.is_visible("text=Log In")
